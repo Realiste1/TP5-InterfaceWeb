@@ -1,0 +1,126 @@
+
+@font-face { /* De mon ordinateur */
+    font-family: "Minecraft Ten";
+    src: url(fonts/MinecraftTen-VGORe.ttf);
+}
+@font-face { /* De google fonts */
+    font-family: "Ubuntu Mono", monospace;
+    src: url(fonts/UbuntuMono-Regular.ttf);
+}
+
+.font-minecraft {
+    font-family: "Minecraft Ten";
+}
+.font-ubuntu {
+    font-family: "Ubuntu Mono", monospace;
+}
+
+.shadow-main {
+    text-shadow: 0.1rem 0.1rem 0.5rem green;
+}
+
+.w-10 {
+    width: 10%;
+}
+.w-5 {
+    width: 5%;
+}
+.w-10r {
+    width: 10rem;
+}
+.w-5r {
+    width: 5rem;
+}
+
+.fs-5r {
+    font-size: 5rem;
+}
+.fs-3r {
+    font-size: 3rem;
+}
+
+.text-lime {
+    color: limegreen;
+}
+.text-lightgreen {
+    color: rgb(215, 255, 215);
+}
+.text-yellow {
+    color: yellow;
+}
+
+
+.bg-black-50 {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.bg-black-75 {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+.bg-gray {
+    background-color: rgb(180, 180, 180);
+}
+.bg-lightgreen {
+    background-color: rgb(215, 255, 215);
+}
+.bg-darklightgreen {
+    background-color: rgb(139, 212, 139);
+}
+.bg-lightgreen-hover:hover {
+    background-color: rgb(155, 202, 155);
+}
+.bg-gradient-green-white {
+    background-image: linear-gradient(to top, rgb(215, 255, 215), white);
+}
+.bg-gradient-green-gray {
+    background-image: linear-gradient(to top, rgb(61, 138, 68), rgb(104, 104, 104));
+}
+
+.border-gray {
+    border-color: rgb(180, 180, 180) !important;
+}
+
+.transition-02 {
+    transition: 0.2s;
+}
+
+
+.m-5p {
+    margin: 5%;
+}
+.ms-5p {
+    margin-left: 5%;
+}
+.me-5p {
+    margin-right: 5%;
+}
+
+.max-width-75p {
+    max-width: 75%; 
+}
+.max-width-2r {
+    max-width: 2rem; 
+}
+
+
+@media screen and (min-width:992px) {
+    .w-lg-10 {
+        width: 10% !important;
+    }
+    .w-lg-25 {
+        width: 25% !important;
+    }
+
+    .ms-lg-5p {
+        margin-left: 5%;
+    }
+    .me-lg-5p {
+        margin-right: 5%;
+    }
+    .ms-lg-10p {
+        margin-left: 10%;
+    }
+    .me-lg-10p {
+        margin-right: 10%;
+    }
+
+}

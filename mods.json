@@ -1,0 +1,35 @@
+{
+    "__comment": "Les catégories, loaders, le nombre de téléchargements, la date de mise à jour, l'image et la description (traduite) sont tous obtenu via https://modrinth.com/mods?s=downloads. ChatGPT a aussi été utilisé pour traduire certaines descriptions.",
+    "mods": [
+        {
+            "id": "fabricapi",
+            "name": "Fabric API",
+            "desc": "API légère et modulaire offrant des points d'accroche communs et des mesures d'intercompatibilité utilisées par les mods utilisant la chaîne d'outils Fabric.",
+            "category": ["lib"],
+            "loader": ["fabric"],
+            "img": "https://cdn.modrinth.com/data/P7dR8mSH/icon.png",
+            "downloads": "30020000",
+            "update": "1733433180"
+        },
+        {
+            "id": "sodium",
+            "name": "Sodium",
+            "desc": "Sodium est un mod d'optimisation de graphique très puissant pour Minecraft 1.16+, qui améliore la performance et la qualité graphique.",
+            "category": ["opt"],
+            "loader": ["fabric", "neoforge", "quilt"],
+            "img": "https://cdn.modrinth.com/data/AANobbMI/295862f4724dc3f78df3447ad6072b2dcd3ef0c9_96.webp",
+            "downloads": "27520000",
+            "update": "1733554740"
+        },
+        {
+            "id": "clothconfigapi",
+            "name": "Cloth Config API",
+            "desc": "Librairie de configuration pour des mods Minecraft.",
+            "category": ["lib"],
+            "loader": ["fabric", "neoforge", "forge"],
+            "img": "https://cdn.modrinth.com/data/9s6osm5g/ed8a2316cbb6f4fc5f510e8e13a59a85cbbbff4d_96.webp",
+            "downloads": "21450000",
+            "update": "1733505180"
+        }
+    ]
+}
