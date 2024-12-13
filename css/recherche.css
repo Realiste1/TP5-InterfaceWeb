@@ -1,0 +1,6 @@
+a>div {
+    transition: 0.2s;
+}
+a>div:hover {
+    transform: scale(1.02);
+}

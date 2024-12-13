@@ -8,7 +8,7 @@ export var modData = data;
 console.log("Found ModList: ", data);
 
 
-export function generateList(searchTerm, loader, version, categories) {
+export function generateList() {
     const modList = document.getElementById("modList");
     const filterName = document.getElementById("inputSearch").value;
     const filterLoader = document.getElementById("filterModLoader").value;
@@ -21,31 +21,6 @@ export function generateList(searchTerm, loader, version, categories) {
         modList.removeChild(modList.lastChild);
     }
 
-/*     
-
-STRUCTURE: 
-
-<a href="mods/fabricapi.html" class="text-decoration-none">
-    <div class="card mb-3 border border-2 border-gray">
-        <div class="row g-0">
-            <div class="col-md-1 my-auto">
-                <img src="https://cdn.modrinth.com/data/P7dR8mSH/icon.png" class="img-fluid rounded-start" alt="Fabric API">
-            </div>
-            <div class="col-md-11">
-                <div class="card-body">
-                    <div class="card-title d-flex justify-content-between">
-                        <p class="fs-5">Fabric API</p>
-                        <div class="mod_cat me-2 fs-3">
-                            <span class="bi bi-book" title="Libraries"></span>
-                        </div>
-                    </div>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. aaaaaaa aaaaaaaa aaaaaaaaaa aaaaaaaaaaaaaa aaaaaaa</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</a> 
-*/
     console.group("Filtres Actifs");
     if(filterName){
         console.log("FILTER:", filterName.toUpperCase());
@@ -82,8 +57,11 @@ STRUCTURE:
         }
 
         /* filtre 3: Version */
-        if(filterLoader){
-            /* TODO */
+        if(filterVersion){
+            if(!data.mods[i].version.includes(filterVersion)){
+                console.log("%c[FILTER]", "color: lime; background: #664400", data.mods[i].name, "n'est pas un mod de version \"", filterVersion, "\", skipping...", data.mods[i].version);
+                continue;
+            }
         }
         
 
@@ -166,7 +144,7 @@ STRUCTURE:
                     div4.className = "col-md-11";
 
                         let div5 = document.createElement("div");
-                        div5.className = "card-body";
+                        div5.className = "card-body d-flex flex-column";
 
                             let div6 = document.createElement("div");
                             div6.className = "card-title d-flex justify-content-between";
@@ -209,6 +187,7 @@ STRUCTURE:
                                         span.className = "bi bi-wifi";
                                         span.title = "Technologie";
                                     }
+                                    span.classList.add("mx-1");
                                     div7.appendChild(span);
                                 }
                                 
@@ -218,26 +197,22 @@ STRUCTURE:
                                     /* Check quel(s) loader(s) le mod a */
                                     if(data.mods[i].loader[j] == "fabric"){
                                         img2.src = "../img/fabric.png";
-                                        img2.className = "max-width-2r mx-2";
                                         img2.alt = "Fabric";
                                         img2.title = "Fabric";
                                     }else if(data.mods[i].loader[j] == "forge"){
                                         img2.src = "../img/forge.png";
-                                        img2.className = "max-width-2r mx-2";
                                         img2.alt = "Forge";
                                         img2.title = "Forge";
                                     }else if(data.mods[i].loader[j] == "neoforge"){
                                         img2.src = "../img/neoforged.png";
-                                        img2.className = "max-width-2r mx-2";
                                         img2.alt = "NeoForge";
                                         img2.title = "NeoForge";
                                     }else if(data.mods[i].loader[j] == "quilt"){
                                         img2.src = "../img/quilt.webp";
-                                        img2.className = "max-width-2r mx-2";
                                         img2.alt = "Quilt";
                                         img2.title = "Quilt";
-                                        
                                     }
+                                    img2.className = "mx-2      max-width-2r";
                                     div7.appendChild(img2);
                                 }
                                 
@@ -247,11 +222,17 @@ STRUCTURE:
                         div5.appendChild(div6);
                                     
 
-                            let pDesc = document.createElement("p");
-                            pDesc.className = "card-text";
-                            pDesc.innerText = data.mods[i].desc;
-                        div5.appendChild(pDesc);
-                                        
+                            let div8 = document.createElement("div");
+                            div8.className = "card-text d-flex flex-column flex-lg-row justify-content-lg-between";
+
+                                let pDesc = document.createElement("p");
+                                pDesc.innerText = data.mods[i].desc;
+                            div8.appendChild(pDesc);
+                                let pDwl = document.createElement("p");
+                                pDwl.className = "text-lg-end";
+                                pDwl.innerText = data.mods[i].downloads + " téléchargements";
+                            div8.appendChild(pDwl);
+                        div5.appendChild(div8);
                 
                     div4.appendChild(div5);
             
@@ -260,7 +241,7 @@ STRUCTURE:
             div1.appendChild(div2);
 
         newMod.appendChild(div1);
-        newMod.href = "mods/" + data.mods[i].id + ".html";
+        newMod.href = "result.html#" + data.mods[i].id;
         newMod.className = "text-decoration-none";
         newMod.id = data.mods[i].id
         modList.appendChild(newMod);

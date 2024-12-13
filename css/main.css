@@ -31,12 +31,21 @@
 .w-5r {
     width: 5rem;
 }
+.w-3r {
+    width: 3rem;
+}
+.w-1r {
+    width: 1rem;
+}
 
 .fs-5r {
     font-size: 5rem;
 }
 .fs-3r {
     font-size: 3rem;
+}
+.fs-2r {
+    font-size: 2rem;
 }
 
 .text-lime {
@@ -50,6 +59,9 @@
 }
 
 
+.bg-white-25 {
+    background-color: rgba(255, 255, 255, 0.25);
+}
 .bg-black-50 {
     background-color: rgba(0, 0, 0, 0.5);
 }
@@ -72,7 +84,7 @@
     background-image: linear-gradient(to top, rgb(215, 255, 215), white);
 }
 .bg-gradient-green-gray {
-    background-image: linear-gradient(to top, rgb(61, 138, 68), rgb(104, 104, 104));
+    background-image: linear-gradient(to top, rgb(61, 177, 71), rgb(201, 201, 201));
 }
 
 .border-gray {
@@ -100,6 +112,9 @@
 .max-width-2r {
     max-width: 2rem; 
 }
+.max-height-2r {
+    max-height: 2rem; 
+}
 
 
 @media screen and (min-width:992px) {
@@ -122,5 +137,18 @@
     .me-lg-10p {
         margin-right: 10%;
     }
+    
+    .bg-lg-transparent {
+        background-color: rgba(0, 0, 0, 0) !important;
+    }
 
+    .max-width-lg-3r {
+        max-width: 3rem; 
+    }
+    .max-height-lg-3r {
+        max-height: 3rem; 
+    }
+    .min-width-lg-20 {
+        min-width: 20%; 
+    }
 }
