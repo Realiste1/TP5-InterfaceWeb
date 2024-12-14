@@ -21,8 +21,6 @@
                 <img src="https://minecraft.wiki/images/Smithing_Table_JE2_BE2.png?9d5a7&format=original" alt="Icone ModCraft" class="w-25 d-inline    w-lg-10">
                 <h1 class="d-inline text-success-emphasis    shadow-main font-minecraft fs-3r">ModCraft</h1>
                 <h3 class="d-block p-2 text-success-emphasis    shadow-main font-ubuntu fs-6">Rendre l'expérience moddée plus amusante.</h3>
-                <!-- TODO: BACKGROUND
-                Plusieurs blocs de machines moddées côte à côte pour l'image de fond d'écran -->
             </div>
 
         </header>
@@ -65,80 +63,47 @@
         <!-- MAIN -->
 
         <main>
-            <div id="notFound" class="d-none">
-                <p class="text-danger fs-1 text-center">Le mod recherché n'a pas pu être trouvé. Veuillez retourner dans la liste de mods.</p>
+            <div id="emptyList" class="d-none">
+                <p class="text-danger fs-1 text-center">Votre panier est vide!</p>
             </div>
-            <div id="found" class="d-none">
-                <!-- PARTIE 1: Identification du mod (barre du haut) -->
-                <div class="bg-dark-subtle d-flex flex-lg-row flex-column justify-content-between px-2 px-lg-5">
-                    <div class="d-flex flex-row py-1">
-                        <img src="autogen" alt="autogen" id="modIcon" class="img-fluid rounded rounded-start w-5r border border-3 border-gray rounded-3">
-                        <p id="modTitle" class="my-auto ms-3       font-minecraft fs-2r"></p>
-                    </div>
-                    <div class="d-flex flex-row bg-gray justify-content-evenly      bg-lg-transparent">
-                        <div id="modCats" class="d-flex justify-content-center"></div>
-                        <div id="modLoaders" class="d-flex justify-content-center"></div>
-                    </div>
+            <div id="panierListe" class="d-none d-flex flex-column-reverse flex-lg-row">
+                <div id="listeModsPanier" class="mx-5 m-lg-3 ms-lg-5 w-lg-75">
                 </div>
-                <!-- PARTIE 2: Info du mod (Ajouter au panier, dates, autheur(s), etc.) -->
-                <div class="d-flex flex-column flex-lg-row-reverse">
-                    <div class="bg-success-subtle d-flex flex-column border border-3 border-gray rounded rounded-2 h-auto      min-width-lg-20">
-                        <div class="border-bottom border-3 border-dark-subtle d-flex flex-column">
-                            <p id="modName" class="fs-2 align-self-center"></p>
-                            <button class="btn btn-success w-50 align-self-center mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAdd" aria-controls="offcanvasAdd">Ajouter au panier</button>
+                <div class="w-lg-25">
+                    <div class="bg-white border rounded border-gray border-3 m-3">
+                        <h2 class="text-center shadow-main text-success-emphasis border rounded border-gray border-3 pb-2 m-0       font-minecraft">Votre Panier</h2>
+                        <div id="panierSideList" class="d-flex flex-column border rounded border-gray border-3 py-2 px-2 px-lg-5">
+
                         </div>
-                        <div class="d-flex flex-column m-lg-3">
-                            <p>
-                                Autheur(s) du mod: <span id="modAuthor" class="text-info-emphasis"></span>
-                            </p>
-                            <p>
-                                Dernière mise à jour: <span id="modUpdate" class="text-info-emphasis"></span>
-                            </p>
-                            <p>
-                                Nombre de téléchargements: <span id="modDownloads" class="text-info-emphasis"></span>
-                            </p>
+                        <div class="d-flex flex-row justify-content-evenly py-2 border rounded border-gray border-3 ">
+                            <button class="btn btn-success" onclick="confirmSelection();">Confirmer sélection</button>
+                            <button class="btn btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#wipeList" aria-controls="wipeList">
+                                Tout effacer
+                            </button>
                         </div>
                     </div>
-                    <!-- PARTIE 3: Description du mod (Fetch de mods.json) -->
-                    <div class="m-2 m-lg-5 p-2 me-lg-auto      bg-white-25" id="modDesc">
-                        
-                    </div>
                 </div>
-                <!-- PARTIE 4: Source du mod -->
-                <div class="mx-2 mx-lg-5 p-2">
-                    <a id="modSource" class="btn btn-secondary text-decoration-none text-white" target="_blank" href="autogen">Source du mod</a>
-                </div>
-            </div>
-
-
-
-            <!-- Download options -->
-            <div class="offcanvas offcanvas-top bg-gray" tabindex="-1" id="offcanvasAdd" aria-labelledby="offcanvasTopLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasTopLabel">Choisir version</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <form id="formDownload">
-                        <select class="form-select w-50 w-lg-25 border border-success border-2 mb-2         bg-darklightgreen" id="downloadLoaderList" name="downloadLoaderList" aria-label="Selectionnez le mod loader" onchange="downloadLoaderChange()">
-                            <option selected hidden>Mod Loader</option>
-                        </select>
-                        <select class="form-select w-50 w-lg-25 border border-success border-2 d-none         bg-darklightgreen" id="downloadVersionList" name="downloadVersionList" aria-label="Selectionnez le mod loader" onchange="downloadVersionChange()">
-                            <option selected hidden>Version du jeu</option>
-                        </select>
-                        <br>
-                        <button class="btn btn-success" type="button" id="downloadButton" onclick="downloadMod();updateModCount();" disabled>
-                            Ajouter au panier
-                        </button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="offcanvas" aria-label="Close">
-                            Annuler
-                        </button>
-
-                    </form>
-                </div>
+                <div></div> <!-- div vide pour eviter que le panier s'etend jusqu'au bas de la page -->
             </div>
         </main>
 
+        <div class="offcanvas offcanvas-start bg-black-75" tabindex="-1" id="wipeList" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title text-white" id="offcanvasExampleLabel">Tout effacer?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div>
+                    <p class="text-white">Êtes-vous sûr de vouloir tout effacer? Vous allez devoir recréer votre liste!</p>
+                </div>
+                <div class="dropdown mt-3">
+                    <button class="btn btn-danger" type="button" onclick="wipeAllMods();">
+                    Tout effacer
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="offcanvas" aria-label="Close">Annuler</button>
+                </div>
+            </div>
+        </div>
         <!-- FOOTER -->
 
         <footer class="bg-dark">
@@ -178,8 +143,8 @@
         <!-- Bootstrap script -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <!-- Main script -->
-        <script src="scripts/main.js"></script>
-        <script src="scripts/result.js"></script>
-        <script type="module" src="scripts/load_modules_page.js"></script>
+        <script src="scripts/main.js" async defer></script>
+        <script src="scripts/panier.js" async defer></script>
+        <script type="module" src="scripts/load_modules_panier.js" async></script>
     </body>
 </html>

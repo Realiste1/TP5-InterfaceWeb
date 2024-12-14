@@ -101,6 +101,49 @@ export function generatePage() {
 
     /* 9) Source du mod */
     document.getElementById("modSource").href = modData.source;
+
+    /* 10a) Choix du ModLoader */
+    if(modData.loader.includes("fabric")){
+        let option = document.createElement("option");
+        option.innerText = "Fabric";
+        document.getElementById("downloadLoaderList").appendChild(option);
+    }
+    if(modData.loader.includes("forge")){
+        let option = document.createElement("option");
+        option.innerText = "Forge";
+        document.getElementById("downloadLoaderList").appendChild(option);
+    }
+    if(modData.loader.includes("neoforge")){
+        let option = document.createElement("option");
+        option.innerText = "NeoForge";
+        document.getElementById("downloadLoaderList").appendChild(option);
+    }
+    if(modData.loader.includes("quilt")){
+        let option = document.createElement("option");
+        option.innerText = "Quilt";
+        document.getElementById("downloadLoaderList").appendChild(option);
+    }
+    /* 10b) Choix de la version */
+    if(modData.version.includes("16")){
+        let option = document.createElement("option");
+        option.innerText = "MC 1.16.5";
+        document.getElementById("downloadVersionList").appendChild(option);
+    }
+    if(modData.version.includes("18")){
+        let option = document.createElement("option");
+        option.innerText = "MC 1.18.2";
+        document.getElementById("downloadVersionList").appendChild(option);
+    }
+    if(modData.version.includes("20")){
+        let option = document.createElement("option");
+        option.innerText = "MC 1.20.4";
+        document.getElementById("downloadVersionList").appendChild(option);
+    }
+    if(modData.version.includes("21")){
+        let option = document.createElement("option");
+        option.innerText = "MC 1.21.4";
+        document.getElementById("downloadVersionList").appendChild(option);
+    }
     
 }
 

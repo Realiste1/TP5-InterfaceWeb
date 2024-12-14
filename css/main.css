@@ -4,7 +4,7 @@
     src: url(fonts/MinecraftTen-VGORe.ttf);
 }
 @font-face { /* De google fonts */
-    font-family: "Ubuntu Mono", monospace;
+    font-family: "Ubuntu Mono";
     src: url(fonts/UbuntuMono-Regular.ttf);
 }
 
@@ -123,6 +123,9 @@
     }
     .w-lg-25 {
         width: 25% !important;
+    }
+    .w-lg-75 {
+        width: 75% !important;
     }
 
     .ms-lg-5p {
