@@ -62,19 +62,19 @@ export function generatePage() {
     for(let i=0;i<modData.loader.length;i++){
         let img = document.createElement("img");
         if(modData.loader[i] == "fabric"){
-            img.src = "../img/fabric.png";
+            img.src = "https://realiste1.github.io/TP5-InterfaceWeb/img/fabric.png";
             img.alt = "Fabric";
             img.title = "Fabric";
         }else if(modData.loader[i] == "forge"){
-            img.src = "../img/forge.png";
+            img.src = "https://realiste1.github.io/TP5-InterfaceWeb/img/forge.png";
             img.alt = "Forge";
             img.title = "Forge";
         }else if(modData.loader[i] == "neoforge"){
-            img.src = "../img/neoforged.png";
+            img.src = "https://realiste1.github.io/TP5-InterfaceWeb/img/neoforged.png";
             img.alt = "NeoForge";
             img.title = "NeoForge";
         }else if(modData.loader[i] == "quilt"){
-            img.src = "../img/quilt.webp";
+            img.src = "https://realiste1.github.io/TP5-InterfaceWeb/img/quilt.webp";
             img.alt = "Quilt";
             img.title = "Quilt";
         }

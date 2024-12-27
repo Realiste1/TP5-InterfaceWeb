@@ -196,19 +196,19 @@ export function generateList() {
 
                                     /* Check quel(s) loader(s) le mod a */
                                     if(data.mods[i].loader[j] == "fabric"){
-                                        img2.src = "../img/fabric.png";
+                                        img2.src = "https://realiste1.github.io/TP5-InterfaceWeb/img/fabric.png";
                                         img2.alt = "Fabric";
                                         img2.title = "Fabric";
                                     }else if(data.mods[i].loader[j] == "forge"){
-                                        img2.src = "../img/forge.png";
+                                        img2.src = "https://realiste1.github.io/TP5-InterfaceWeb/img/forge.png";
                                         img2.alt = "Forge";
                                         img2.title = "Forge";
                                     }else if(data.mods[i].loader[j] == "neoforge"){
-                                        img2.src = "../img/neoforged.png";
+                                        img2.src = "https://realiste1.github.io/TP5-InterfaceWeb/img/neoforged.png";
                                         img2.alt = "NeoForge";
                                         img2.title = "NeoForge";
                                     }else if(data.mods[i].loader[j] == "quilt"){
-                                        img2.src = "../img/quilt.webp";
+                                        img2.src = "https://realiste1.github.io/TP5-InterfaceWeb/img/quilt.webp";
                                         img2.alt = "Quilt";
                                         img2.title = "Quilt";
                                     }
@@ -241,7 +241,7 @@ export function generateList() {
             div1.appendChild(div2);
 
         newMod.appendChild(div1);
-        newMod.href = "result.html#" + data.mods[i].id;
+        newMod.href = "https://realiste1.github.io/TP5-InterfaceWeb/result.html#" + data.mods[i].id;
         newMod.className = "text-decoration-none";
         newMod.id = data.mods[i].id
         modList.appendChild(newMod);
